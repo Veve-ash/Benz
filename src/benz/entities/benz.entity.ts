@@ -1,6 +1,7 @@
-import { PrimaryGeneratedColumn, Column } from "typeorm"
+import { Entity, PrimaryGeneratedColumn, Column } from "typeorm"
 import { Role } from "../enum/benz.role.enum"
 
+@Entity()
 export class Benz {
     @PrimaryGeneratedColumn('uuid')
     id:string
@@ -23,4 +24,7 @@ export class Benz {
         default: Role.User
     })
     role: Role;
+
+    @Column({default:false})
+    isBlocked:boolean
 }

@@ -7,6 +7,8 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { Benz } from './entities/benz.entity';
 import { JwtStrategy } from './jwt.strategy';
 import { RolesGuard } from './guard/role.guard';
+import * as dotenv from 'dotenv';
+dotenv.config()
 
 @Module({
   imports:[TypeOrmModule.forFeature([Benz]),

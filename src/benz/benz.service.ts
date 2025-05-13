@@ -131,6 +131,14 @@ export class BenzService {
      return this.userRepo.save(user);
    }
 
+   async blockUser(id:string): Promise<Benz>{
+    const user = await this.userRepo.findOne({where : { id }});
+    if(!user) throw new Error('User not found');
+
+    user.isBlocked = !user.isBlocked;
+    return this.userRepo.save(user);
+   }
+
    async findAll() {
     return await this.userRepo.find()
    }

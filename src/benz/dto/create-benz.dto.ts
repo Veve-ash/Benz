@@ -1,4 +1,4 @@
-import { IsNotEmpty, IsString, IsOptional, IsEmail } from "class-validator"
+import { IsNotEmpty, IsString, IsOptional, IsEmail, IsStrongPassword } from "class-validator"
 import { Role } from "../enum/benz.role.enum"
 
 export class CreateBenzDto {
@@ -16,6 +16,7 @@ export class CreateBenzDto {
 
     @IsNotEmpty()
     @IsString()
+    @IsStrongPassword({ minLength:8, minLowercase:1, minUppercase:1, minNumbers:1, minSymbols:1 })
     Password:string
 
     @IsOptional()

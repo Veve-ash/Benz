@@ -29,13 +29,19 @@ export class BenzController {
   return this.benzService.findAll();
 }
 
-  @Put(':id')
+@Put(':id')
 @UseGuards(RolesGuard, AuthGuard())
 @Roles(Role.Admin)
 update(@Param('id') id: string) {
   return this.benzService.Update(id);
 }
 
+@Patch(':id/block')
+@UseGuards(RolesGuard, AuthGuard())
+@Roles(Role.Admin)
+async blockUser(@Param('id') id: string) {
+  return this.benzService.blockUser(id);
+}
 
 
 @Get(':id')
