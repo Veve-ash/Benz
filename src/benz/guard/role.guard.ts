@@ -15,7 +15,8 @@ export class RolesGuard implements CanActivate{
 
        if (request?.user){
         const headers:Headers = request.headers;
-        const user = await this.benzService.user(headers);
+        let user = await this.benzService.user(headers);
+        console.log('user',user)
 
         if (!roles.includes((await user).role)){
             throw new ForbiddenRoleException(roles.join(' or '));
