@@ -14,7 +14,7 @@ export const dataSourceOptions: DataSourceOptions=({
   username: configService.getOrThrow('DB_USERNAME'),
   password: configService.getOrThrow('DB_PASSWORD'),
   database: configService.getOrThrow('DB_NAME'),
-  entities: ['dist//*.entity.js', Benz],
+  entities: ['dist//*.entity.js'],
   migrations: ['dist/config/migrations/*.js'],
   synchronize:true
 });
